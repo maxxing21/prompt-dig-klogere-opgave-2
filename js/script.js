@@ -23,7 +23,7 @@
 //    script-tag står i <head>.
 
 // ✏️ B. Skriv use strict her ↓
-
+"use strict";
 
 
 // ------------------------------------------------------------------
@@ -32,6 +32,7 @@
 // ✏️ Lav et array med navnet animalInfo med ét objekt for hvert dyr
 //    i tabellen.
 //
+
 //   className | name   | species | age | food
 //   animal1   | Simba  | Løve    | 5   | Kød
 //   animal2   | Dumbo  | Elefant | 8   | Blade og frugt
@@ -49,7 +50,11 @@
 // 💬 Sparring 2: Forklar, hvorfor age står uden anførselstegn.
 
 // ✏️ Skriv dit array her ↓
-
+const animalInfo = [
+  { className: "animal1", name: "Simba", species: "Løve", age: 5, food: "Kød" },
+  { className: "animal2", name: "Dumbo", species: "Elefant", age: 8, food: "Blade og frugt" },
+  { className: "animal3", name: "Gerald", species: "Giraf", age: 6, food: "Blade fra høje træer" }
+];
 
 
 // ✅ Test: Kig i Console – er der 3 dyr?
@@ -66,7 +71,7 @@ console.log(animalInfo);
 //    elementet i HTML'en.
 
 // ✏️ Skriv din kode her ↓
-
+const infoboxElement = document.getElementById("infobox");
 
 
 // ------------------------------------------------------------------
@@ -86,12 +91,14 @@ console.log(animalInfo);
 //       (Når du er færdig, må du gerne flytte { op i slutningen
 //       af linjen med funktionshovedet.)
 
-{
-  infoboxElement.innerHTML = text;
+
+  
+
 
   // ✏️ B. Skriv din kode her ↓
-
-
+function showInfoBox(text){ 
+  infoboxElement.innerHTML = text;
+  infoboxElement.classList.add("show");
 }
 
 
@@ -117,13 +124,14 @@ animalInfo.forEach(function (animal) {
     //    Afslut hver linje med <br> (undtagen den sidste).
     const animalDetails = `
       <strong>${animal.name}</strong><br>
-      
-
-      
+      <strong>${animal.species}</strong><br>
+      <strong>${animal.age} år</strong><br>
+      <strong>${animal.food}</strong><br>
     `;
 
     // ✏️ Skriv dit funktionskald til funktionen showInfoBox
     //    med animalDetails her ↓
+    showInfoBox(animalDetails);
 
 
   });
